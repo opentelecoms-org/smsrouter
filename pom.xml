@@ -5,7 +5,7 @@
   <artifactId>smsrouter</artifactId>
   <name>SMSRouter</name>
   <packaging>jar</packaging>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
   <description>Manages interaction with SMPP gateways</description>
   <url>http://smsrouter.org/</url>
   <licenses>
