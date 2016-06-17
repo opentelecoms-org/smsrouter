@@ -1,0 +1,50 @@
+# Credentials assigned by the SMPP gateway:
+smpp.username=foo
+smpp.password=bar
+
+# Hostname of the SMPP gateway:
+smpp.host=smsc-gw.example.org
+
+# TCP port of the SMPP gateway:
+smpp.port=8000
+
+# SMPP link timer for camel-smpp / jSMPP
+smpp.link-timer=10000
+
+# SMPP System Type.  The meaning of this value depends on the SMPP gateway.
+# Some SMPP gateway operators use this to allow their clients to
+# group SMPP binds for related purposes.  For example, in a high-availability
+# setup with multiple binds, the SMPP gateway may send delivery receipts
+# back over any of the binds that uses the same System Type string as the
+# bind used to submit the message being acknowledged.
+# Consult with the SMPP gateway's documentation and help desk to determine
+# the exact way they use this value.  If your SMPP gateway hasn't told
+# you to specify a System Type, you can leave it blank.
+smpp.system-type=
+
+# Phone numbers in the SMSOrigin and SMSDestination headers without
+# an E.164 country code prefix will be assumed to belong to the
+# country specified with this property:
+local.country=CH
+
+# Phone numbers from the SMPP Gateway (SMSC) without an E.164 country code
+# prefix will be assumed to belong to the country specified with this property:
+smsc.country=UK
+
+# If the destination number of an outgoing message appears to belong
+# to one of the countries specified in this blacklist property, the
+# message will not be sent.  Use this to prevent sending messages to
+# countries with large fees for SMS delivery.
+blacklist.countries=CI;GF;GP;MQ;NC;PF;RE
+
+# For countries in this list, the source/sending number of outgoing messages
+# will be replaced by the number specified here.
+# Multiple countries can be associated with a single sending number by
+# listing them with commas.
+source-overrides=US,CA:+16461234567;UK:+442071234567
+
+# Outbound messages will be throttled by the camel-throttle component
+# using the values specified in these properties.  See the web page
+# for the camel-throttle component for more detail.
+throttle.timePeriodMillis=1000
+throttle.maximumRequestsPerPeriod=5
