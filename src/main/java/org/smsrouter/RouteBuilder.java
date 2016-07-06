@@ -76,7 +76,7 @@ public class RouteBuilder extends SpringRouteBuilder {
 		String dlq = "activemq:smsrouter.outbox.failed";
 		
 		/**
-		 * This Camel routes handles messages going out to the SMS world
+		 * This Camel route handles messages going out to the SMS world
 		 */
 		from("activemq:smsrouter.outbox")
 			.errorHandler(deadLetterChannel(dlq))
